@@ -17,7 +17,9 @@ class Connection {
             (DB_HOST) ? `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
                 : "mongodb://localhost/adsbackend", {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            useFindAndModify: false,
+            useCreateIndex: true
         }).then(() => {
             console.log("Conexão com o MongoDb realizada com sucesso!");
         }).catch((exception) => {
